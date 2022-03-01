@@ -1,25 +1,19 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import ContextoInicial from './Contexts/ContextoInicial';
+import Form from './Components/Form';
+import Register from './Components/Register';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  const[nome, setNome] = React.useState('')
+  const[email, setEmail] = React.useState('')
+  const[idade, setIdade] = React.useState('')
+ return (
+        <ContextoInicial.Provider value={{nome, setNome, email, setEmail,   idade, setIdade}}>
+            <Form/>
+            <Register/>
+        </ContextoInicial.Provider>
+    )
 }
 
 export default App;
